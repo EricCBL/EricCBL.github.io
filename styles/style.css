@@ -36,7 +36,6 @@ img {
 button {
 	background-color: Goldenrod;
 	color: white;
-	width: 50%;
 	height: 50px;
 }
 
@@ -78,3 +77,31 @@ nav span {
 	grid-template-columns: 1fr 1fr 1fr;
 	grid-gap: 0;
 }
+
+#bananapic, #sausagepic, #deleteimages {
+	position: fixed;
+	left: 15px;
+	width: 300px;
+}
+
+
+#bananapic, #replacebanana {
+	bottom: 75px;
+}
+
+#sausagepic {
+	bottom: 135px;
+}
+
+
+
+#deleteimages, #replacesausage {
+	bottom: 15px;
+}
+
+#replacebanana, #replacesausage {
+	position: fixed;
+	right: 15px;
+	width: 300px;
+}
+

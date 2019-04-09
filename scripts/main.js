@@ -1,5 +1,7 @@
 var myImage = document.querySelector('img');
 
+
+// THIS CHANGES THE MAIN BANANA/SAUSAGE PICTURE WHEN CLICKED
 myImage.onclick = function() {
 	var mySrc = myImage.getAttribute('src');
 	if (mySrc === 'images/Sausana.jpg') {
@@ -11,6 +13,8 @@ myImage.onclick = function() {
 	}
 }
 
+
+// CHANGES USERNAME AND UPDATE THE MAIN HEADING WHEN CLICKING THE "CHANGE USERNAME" BUTTON.
 var myButton = document.querySelector('button');
 var myHeading = document.querySelector('h1');
 
@@ -32,43 +36,78 @@ myButton.onclick = function() {
 }
 
 
-var bananaPic = document.getElementById('bananapic');
-var sausagePic = document.getElementById('sausagepic');
-var counter = 0;
 
-bananaPic.onclick = function() {
-	counter++;
-	if (counter === 1) {
+
+var bananaPic = document.getElementById('bananapic');  //GET A REFERENCE TO THE BANANA PIC GENERATING BUTTON
+var sausagePic = document.getElementById('sausagepic'); //GET A REFERENCE TO THE SAUSAGE PIC GENERATING BUTTON
+
+
+//FUNCTION TO CREATE A CONTAINER FOR THE IMAGES TO BE GENERATED WHEN THE BUTTON IS CLICKED.
+function createContainer() {
+	if (document.getElementById('cont') === null ) {
 		var bananaContainer = document.createElement('div');
 		bananaContainer.setAttribute("id","cont");
+		
+		/* THIS PLACES THE DIV ELEMENT BEFORE THE BUTTONS. SINCE THE BUTTON IS POSITION FIXED NOW IT DOESN'T WORK, BUT I'LL LEAVE IT HERE FOR REFERENCE.
 		var buttonParent = document.getElementById("bananapic").parentNode;
 		var bananaB = document.getElementById("bananapic");
-		buttonParent.insertBefore(bananaContainer,bananaB);
+		buttonParent.insertBefore(bananaContainer,bananaB);*/
+		
+		document.body.appendChild(bananaContainer);
 		
 	}
-	//TESTING TO SEE IF THE CONTAINER WAS REALLY CREATED.
-	/*var bigTest = document.createElement('p');
-	bigTest.textContent = 'THIS IS A HUGE TEST';
-	
-	document.getElementById("cont").appendChild(bigTest);*/
-	
-	console.log(counter);
+}
+
+// GENERATES A BANANA PIC AT THE BOTTOM OF THE DOCUMENT.
+bananaPic.onclick = function() {
+	createContainer();
 	var newBanana = document.createElement('img');
 	newBanana.setAttribute('src','images/bananaphin.jpg');
 	document.getElementById("cont").appendChild(newBanana);
-	
-	
-	
-	/* THIS INSERTS THE IMAGE ABOVE THE CALLING BUTTON
-	var parentN = document.getElementById("bananapic").parentNode;
-	var bananabutton = document.getElementById("bananapic");
-	parentN.insertBefore(newBanana, bananabutton);*/
 }
 
+// GENERATES A SAUSAGE PIC AT THE BOTTOM OF THE DOCUMENT.
 sausagePic.onclick = function() {
+	createContainer()
 	var newSausage = document.createElement('img');
 	newSausage.setAttribute('src','images/sausage-dog.jpg');
-	document.body.appendChild(newSausage);
+	document.getElementById("cont").appendChild(newSausage);
 }
+
+
+
+
+var deleteImages = document.getElementById('deleteimages'); // REFERENCE TO THE DELETE IMAGES BUTTON
+
+// REMOVE THE CONTAINER IN WHICH THE IMAGES ARE STORES, THUS DELETING ALL THE IMAGES.
+deleteImages.onclick = function() {
+	var removeContainer = document.getElementById('cont');
+	removeContainer.parentNode.removeChild(removeContainer);
+}
+
+
+
+
+var replaceSausage = document.getElementById('replacesausage'); //REFERENCE TO REPLACE SAUSAGE BUTTON
+var replaceBanana = document.getElementById('replacebanana'); //REFERENCE TO REPLACE BANANA BUTTON
+
+// REPLACES ALL SAUSAGE PICS WITH BANANA PICS
+replaceSausage.onclick = function() {
+	if (document.getElementById('cont')) {
+		for (var i = 0; i < cont.childNodes.length; i++) {
+			cont.childNodes[i].setAttribute('src','images/bananaphin.jpg');
+		}
+	}
+}
+
+// REPLACES ALL BANANA PICS WITH SAUSAGE PICS
+replaceBanana.onclick = function() {
+	if (document.getElementById('cont')) {
+		for (var i = 0; i < cont.childNodes.length; i++) {
+			cont.childNodes[i].setAttribute('src','images/sausage-dog.jpg');
+		}
+	}
+}
+
 
 
