@@ -6,7 +6,7 @@ body {
 	background: peachpuff;
 	width: 600px;
 	padding: 5px 13px;
-	margin: 0 auto;
+	margin: 7.5vh auto 0px;
 	border: 4px solid maroon;
 }
 p {
@@ -34,10 +34,47 @@ img {
 }
 
 button {
-	display: block;
 	background-color: Goldenrod;
-	color: White;
-	margin: auto;
-	transform: scale(2);
+	color: white;
+	width: 50%;
+	height: 50px;
 }
 
+nav {
+	position: fixed;
+	top: 0;
+	
+	text-decoration: none;
+	width: 600px;
+	height: 7vh;
+	background-color: AquaMarine;
+}
+
+nav ul {
+	width: 600px;
+	position: fixed;
+	top: 0;
+	display: flex;
+	justify-content: space-around;
+	list-style: none;
+	padding: 0;
+	color: black;
+	
+	
+}
+
+li a {
+	text-decoration: none;
+	color: black;
+}
+
+nav span {
+	margin-bottom: 55px;
+}
+
+
+#cont {
+	display: grid;
+	grid-template-columns: 1fr 1fr 1fr;
+	grid-gap: 0;
+}
